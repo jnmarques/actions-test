@@ -4,5 +4,7 @@ jobs:
   my-job:
     runs-on: lynxmind-workstation
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: create-new-file
+        run: touch test_file.txt
