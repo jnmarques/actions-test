@@ -1,5 +1,5 @@
 from importlib import import_module
-#from src.scripts.print_time import print_time
+#from scripts.print_time import print_time
 import os
 import time
 import threading
@@ -24,8 +24,8 @@ class myThread (threading.Thread):
 
 
 # Create new threads
-thread1 = myThread(1, "Thread-1", 1,"src.scripts.print_time", "print_time")
-thread2 = myThread(2, "Thread-2", 2,"src.scripts.print_time", "print_time")
+thread1 = myThread(1, "Thread-1", 1,"scripts.print_time", "print_time")
+thread2 = myThread(2, "Thread-2", 2,"scripts.print_time", "print_time")
 
 # Start new Threads
 thread1.start()
