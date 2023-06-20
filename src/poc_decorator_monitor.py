@@ -1,7 +1,7 @@
 from calendar import c
 from math import e
 import time
-from decorators.monitored import monitored
+from managersdk import monitored
 
 @monitored(common_name="test_it_out")
 def print_time(threadName, counter, delay, event):
