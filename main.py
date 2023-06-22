@@ -1,8 +1,7 @@
-from itertools import count
-from time import sleep
+import time
 
 counter = 0
 while True:
     counter += 1
     print("HELLO WORLD: " + str(counter))
-    sleep(1)
+    time.sleep(1)

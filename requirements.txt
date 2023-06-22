@@ -1,2 +1,0 @@
-managersdk==0.0.1
-psutil==5.9.5
