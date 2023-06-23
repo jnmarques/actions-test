@@ -19,6 +19,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}_test2
   CONTAINER_NAME: python-test2
+  DOCKERFILE_PATH: src/test2/Dockerfile
 
 jobs:
   build-and-push-image:
@@ -39,7 +40,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build . --file src/test2/Dockerfile --tag ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
+          docker build . --file ${{ env.DOCKERFILE_PATH }} --tag ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
   pull-image-and-reload:
     needs: build-and-push-image
