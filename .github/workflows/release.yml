@@ -39,3 +39,19 @@ jobs:
         run: |
           docker build . --file Dockerfile --tag ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
+  pull-image-and-reload:
+    runs-on: lynxmind-workstation
+    permissions:
+      packages: read
+      contents: read
+    
+    steps:
+      - name: Pull image
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run image
+        run: |
+          docker run ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest -d
