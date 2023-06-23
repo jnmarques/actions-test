@@ -18,7 +18,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  CONTAINER_NAME: python-test
+  CONTAINER_NAME: python-test2
 
 jobs:
   build-and-push-image:
