@@ -55,4 +55,4 @@ jobs:
       - name: Pull and Run image
         run: |
           docker pull ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
-          docker run ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
+          docker run ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest -d
