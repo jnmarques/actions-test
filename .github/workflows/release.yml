@@ -46,12 +46,13 @@ jobs:
       contents: read
     
     steps:
-      - name: Pull image
+      - name: Docker login
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run image
+      - name: Pull and Run image
         run: |
-          docker run ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest -d
+          docker pull ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
+          docker run ${{ env.REGISTRY }}/jnmarques/${{ env.IMAGE_NAME }}:latest
