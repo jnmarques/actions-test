@@ -2,7 +2,7 @@ name: main
 on: push
 jobs:
   my-job:
-    runs-on: lynxmind-workstation
+    runs-on: local-altice
     steps:
       - name: checkout
         uses: actions/checkout@v3
