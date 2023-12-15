@@ -1,10 +1,10 @@
-name: main
+name: jikkou_test
 on: 
   push:
     paths:
       - 'gitops/**'
 jobs:
-  my-job:
+  apply-jikkou:
     runs-on: local-altice
     steps:
       - name: checkout
