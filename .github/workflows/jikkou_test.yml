@@ -2,7 +2,7 @@ name: main
 on: 
   push:
     paths:
-      - 'src/test1/**'
+      - 'gitops/**'
 jobs:
   my-job:
     runs-on: local-altice
