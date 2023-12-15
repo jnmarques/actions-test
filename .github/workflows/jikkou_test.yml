@@ -1,0 +1,13 @@
+name: main
+on: 
+  push:
+    paths:
+      - 'src/test1/**'
+jobs:
+  my-job:
+    runs-on: local-altice
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: create-new-file
+        run: jikkou apply -f gitops/kafka-topics.yaml
