@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: create-new-file
+      - name: update-topics
         run: jikkou apply -f gitops/kafka-topics.yaml
+      - name: update-acls
+        run: jikkou apply -f gitops/kafka-acls.yaml
