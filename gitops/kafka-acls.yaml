@@ -44,13 +44,20 @@ spec:
 apiVersion: "kafka.jikkou.io/v1beta2"
 kind: "KafkaPrincipalAuthorization"
 metadata:
-  name: "User:Admin"
+  name: "User:admin"
 spec:
   acls:
     - resource:
         type: 'topic'
         pattern: '*'
         patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'ALL' ]
+      host: "*"
+    - resource:
+        type: 'group'
+        pattern: '*'
+        patternType: '*'
       type: "ALLOW"
       operations: [ 'ALL' ]
       host: "*"
