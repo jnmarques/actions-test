@@ -40,24 +40,3 @@ spec:
       type: 'ALLOW'
       operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
       host: "*"
----
-apiVersion: "kafka.jikkou.io/v1beta2"
-kind: "KafkaPrincipalAuthorization"
-metadata:
-  name: "User:admin"
-spec:
-  acls:
-    - resource:
-        type: 'topic'
-        pattern: '*'
-        patternType: 'LITERAL'
-      type: "ALLOW"
-      operations: [ 'ALL' ]
-      host: "*"
-    - resource:
-        type: 'group'
-        pattern: '*'
-        patternType: 'LITERAL'
-      type: "ALLOW"
-      operations: [ 'ALL' ]
-      host: "*"
