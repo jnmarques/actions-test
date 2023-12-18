@@ -1,0 +1,63 @@
+---
+apiVersion: "kafka.jikkou.io/v1beta2"
+kind: "KafkaPrincipalAuthorization"
+metadata:
+  name: "User:Consumer"
+spec:
+  acls:
+    - resource:
+        type: 'topic'
+        pattern: 'my-third-topic'
+        patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'WRITE', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+    - resource:
+        type: 'topic'
+        pattern: 'my-fourth-topic'
+        patternType: 'LITERAL'
+      type: 'ALLOW'
+      operations: [ 'WRITE', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+---
+apiVersion: "kafka.jikkou.io/v1beta2"
+kind: "KafkaPrincipalAuthorization"
+metadata:
+  name: "User:Producer"
+spec:
+  acls:
+    - resource:
+        type: 'topic'
+        pattern: 'my-third-topic'
+        patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+    - resource:
+        type: 'topic'
+        pattern: 'my-fourth-topic'
+        patternType: 'LITERAL'
+      type: 'ALLOW'
+      operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+---
+apiVersion: "kafka.jikkou.io/v1beta2"
+kind: "KafkaPrincipalAuthorization"
+metadata:
+  name: "User:admin"
+spec:
+  acls:
+    - resource:
+        type: 'topic'
+        pattern: '*'
+        patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'ALL' ]
+      host: "*"
+    - resource:
+        type: 'group'
+        pattern: '*'
+        patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'ALL' ]
+      host: "*"
