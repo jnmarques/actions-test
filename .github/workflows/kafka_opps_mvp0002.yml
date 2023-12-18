@@ -1,0 +1,15 @@
+name: kafka-ops-mvp0002
+on: 
+  push:
+    paths:
+      - 'gitops/mvp0002/**'
+jobs:
+  apply-jikkou:
+    runs-on: local-altice
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: update-topics
+        run: jikkou apply -f gitops/mvp0002/topics
+      - name: update-acls
+        run: jikkou apply -f gitops/mvp0002/acls
