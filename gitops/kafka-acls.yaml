@@ -57,7 +57,7 @@ spec:
     - resource:
         type: 'group'
         pattern: '*'
-        patternType: '*'
+        patternType: 'LITERAL'
       type: "ALLOW"
       operations: [ 'ALL' ]
       host: "*"
