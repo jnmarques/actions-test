@@ -1,21 +1,21 @@
-name: development deploy
+name: production deploy
 on: 
   push:
-    branches: ['dev']
+    branches: ['prd']
     # paths:
     #   - 'gitops/**'
 jobs:
   apply-jikkou:
     runs-on: local-altice
     environment: 
-      name: DEV
+      name: PRD
       url: http://localhost:8087
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: Check ENV
-        run: source ./gitops/environment/dev.sh && echo $ENV
+        run: source ./gitops/environment/prd.sh && echo $ENV
       - name: Update Kafka
         uses: ./.github/actions/jikkou
         with:
-          environment-file: ./gitops/environment/dev.sh
+          environment-file: ./gitops/environment/prd.sh
