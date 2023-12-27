@@ -2,7 +2,7 @@ apiVersion: kafka.jikkou.io/v1beta2
 kind: KafkaTopicList
 items:
   - metadata:
-      name: alpt.${?ENV}.raw.my-first-topic
+      name: alpt.{{ system.env.ENV }}.raw.my-first-topic
     spec:
       partitions: 6
       replicationFactor: 1
@@ -10,7 +10,7 @@ items:
         cleanup.policy: compact
 
   - metadata:
-      name: alpt.${?ENV}.raw.my-second-topic
+      name: alpt.{{ system.env.ENV }}.raw.my-second-topic
     spec:
       partitions: 4
       replicationFactor: 1
