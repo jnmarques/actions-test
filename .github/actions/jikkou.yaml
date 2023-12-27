@@ -1,0 +1,13 @@
+name: jikkou
+description: Update Kafka Environment
+inputs:
+  environment-file:  # id of input
+    description: Environment File
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: update-topics
+      run: source ${{ inputs.environment-file }} && jikkou create -f gitops/topics
+    - name: update-acls
+      run: source ${{ inputs.environment-file }} && jikkou create -f gitops/acls 
