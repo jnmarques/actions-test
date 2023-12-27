@@ -15,6 +15,8 @@ jobs:
         uses: actions/checkout@v3
       - name: source environment vars
         run: source ./gitops/environment/dev.sh
+      - name: Check Vars
+        run: echo $ENV
       - name: update-topics
         run: jikkou create -f gitops/topics
       - name: update-acls
