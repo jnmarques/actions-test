@@ -26,10 +26,10 @@ spec:
       type: "ALLOW"
       operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
       host: "*"
-    - resource:
-        type: 'topic'
-        pattern: 'alpt.${?ENV}.raw.my-fourth-topic'
-        patternType: 'LITERAL'
-      type: 'ALLOW'
-      operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
-      host: "*"
+    # - resource:
+    #     type: 'topic'
+    #     pattern: 'alpt.${?ENV}.raw.my-fourth-topic'
+    #     patternType: 'LITERAL'
+    #   type: 'ALLOW'
+    #   operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+    #   host: "*"
