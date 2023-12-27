@@ -1,22 +1,22 @@
-apiVersion: "kafka.jikkou.io/v1beta2"
-kind: "KafkaTopicList"
+apiVersion: kafka.jikkou.io/v1beta2
+kind: KafkaTopicList
 items:
   - metadata:
-      name: 'alpt.${?ENV}.raw.my-third-topic'
+      name: alpt.${?ENV}.raw.my-third-topic
     spec:
       partitions: 6
       replicationFactor: 1
       configs:
-        cleanup.policy: 'compact'
+        cleanup.policy: compact
 
   - metadata:
-      name: 'alpt.${?ENV}.raw.my-fourth-topic'
+      name: alpt.${?ENV}.raw.my-fourth-topic
     spec:
       partitions: 4
       replicationFactor: 1
       configs:
-        cleanup.policy: 'delete'
-        retention.ms: '2419200000'
+        cleanup.policy: delete
+        retention.ms: 2419200000
 
 
 
