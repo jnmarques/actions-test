@@ -9,5 +9,7 @@ runs:
   steps:
     - name: update-topics
       run: source ${{ inputs.environment-file }} && jikkou create -f gitops/topics
+      shell: bash
     - name: update-acls
       run: source ${{ inputs.environment-file }} && jikkou create -f gitops/acls 
+      shell: bash
