@@ -1,0 +1,18 @@
+name: development deploy
+on: 
+  push:
+    paths:
+      - 'gitops/**'
+jobs:
+  apply-jikkou:
+    runs-on: local-altice
+    environment: 
+      name: DEV
+      url: http://localhost:8087
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: update-topics
+        run: jikkou create -f gitops/mvp0001/topics
+      - name: update-acls
+        run: jikkou create -f gitops/mvp0001/acls 

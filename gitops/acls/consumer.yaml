@@ -2,40 +2,33 @@
 apiVersion: "kafka.jikkou.io/v1beta2"
 kind: "KafkaPrincipalAuthorization"
 metadata:
-  name: "User:Consumer"
+  name: "User:${?CONSUMER_USER}"
 spec:
   acls:
     - resource:
         type: 'topic'
-        pattern: 'my-third-topic'
-        patternType: 'LITERAL'
-      type: "ALLOW"
-      operations: [ 'WRITE', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
-      host: "*"
-    - resource:
-        type: 'topic'
-        pattern: 'my-fourth-topic'
-        patternType: 'LITERAL'
-      type: 'ALLOW'
-      operations: [ 'WRITE', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
-      host: "*"
----
-apiVersion: "kafka.jikkou.io/v1beta2"
-kind: "KafkaPrincipalAuthorization"
-metadata:
-  name: "User:Producer"
-spec:
-  acls:
-    - resource:
-        type: 'topic'
-        pattern: 'my-third-topic'
+        pattern: 'alpt.${?ENV}.raw.my-first-topic'
         patternType: 'LITERAL'
       type: "ALLOW"
       operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
       host: "*"
     - resource:
         type: 'topic'
-        pattern: 'my-fourth-topic'
+        pattern: 'alpt.${?ENV}.raw.my-second-topic'
+        patternType: 'LITERAL'
+      type: 'ALLOW'
+      operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+    - resource:
+        type: 'topic'
+        pattern: 'alpt.${?ENV}.raw.my-third-topic'
+        patternType: 'LITERAL'
+      type: "ALLOW"
+      operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
+      host: "*"
+    - resource:
+        type: 'topic'
+        pattern: 'alpt.${?ENV}.raw.my-fourth-topic'
         patternType: 'LITERAL'
       type: 'ALLOW'
       operations: [ 'READ', 'DESCRIBE', 'DESCRIBE_CONFIGS' ]
