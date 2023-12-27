@@ -1,8 +1,9 @@
 name: development deploy
 on: 
   push:
-    paths:
-      - 'gitops/**'
+    branches: ['master']
+    # paths:
+    #   - 'gitops/**'
 jobs:
   apply-jikkou:
     runs-on: local-altice
@@ -12,6 +13,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+      - name: source environment vars
+        run: source ./gitops/environment/dev.sh
       - name: update-topics
         run: jikkou create -f gitops/topics
       - name: update-acls
