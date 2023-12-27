@@ -1,0 +1,21 @@
+---
+apiVersion: kafka.jikkou.io/v1beta2
+kind: KafkaPrincipalAuthorization
+metadata:
+  name: User:{{ system.env.CLIENT_USER }}
+spec:
+  acls:
+    - resource:
+        type: topic
+        pattern: alpt.{{ system.env.ENV }}.client-topic-1
+        patternType: LITERAL
+      type: ALLOW
+      operations: [ READ, DESCRIBE, DESCRIBE_CONFIGS ]
+      host: '*'
+    - resource:
+        type: topic
+        pattern: alpt.{{ system.env.ENV }}.client-topic-2
+        patternType: LITERAL
+      type: ALLOW
+      operations: [ WRITE, DESCRIBE, DESCRIBE_CONFIGS ]
+      host: '*'
